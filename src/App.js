@@ -1,12 +1,14 @@
 import './App.css';
 import React,{ useState } from 'react';
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from './components/Navbar';
 import Alert from './components/Alert';
 
 import Form from './components/Form';
-// import About from './components/About';
+import About from './components/About';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -40,17 +42,20 @@ function App() {
 
   return (
     <>
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
         <Navbar appName="TextUtils" mode={mode} toggleMode={toggleMode}/>
-        <Alert alert={alert}/>
+        <main className='flex-shrink-0'>
+         <Alert alert={alert}/>
           <div className="container">
-           <Form title="Enter text to analayze below" alert={showAlert} />
-            {/* <Routes>
+            <Routes>
               <Route path="/" element={<Form title="Enter text to analayze below" alert={showAlert} />} title="Home"/>
-              <Route path="/about" element={<About />}/>
-            </Routes> */}
+              <Route path="/about" element={<About mode={mode} />} title="TextUtils - About"/>
+              <Route path="/contact" element={<Contact />}/>
+            </Routes>
           </div>
-      {/* </BrowserRouter> */}
+        </main>
+        <Footer mode={mode} />
+      </BrowserRouter>
     </>
   );
 }
