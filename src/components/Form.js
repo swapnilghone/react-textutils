@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types'
 
 export default function Form(props) {
@@ -39,17 +39,13 @@ export default function Form(props) {
         props.alert("Extra spaces removed!", "success");
     }
 
-    useEffect(() => {
-        document.title = "TextUtils - Home"
-    }, []);
-
     return (
         <>
         <div className="form-group mt-4">
             <label htmlFor="exampleFormControlTextarea1">{props.title}</label>
             <textarea className="form-control" id="exampleFormControlTextarea1" rows="10" value={text} onChange={handleTextChange}></textarea>
             <div className='my-4'>
-                <input className="btn btn-primary me-2 my-2" type="button" value="Convert UPPERCASE" onClick={handleUpClick} disabled = {text.length === 0}/>
+            <input className="btn btn-primary me-2 my-2" type="button" value="Convert UPPERCASE" onClick={handleUpClick} disabled = {text.length === 0}/>
                 <input className="btn btn-primary mx-2 my-2" type="button" value="Convert lowercase" onClick={handleLowClick} disabled = {text.length === 0}/>
                 <input className="btn btn-primary mx-2 my-2" type="button" value="Copy Text" onClick={handleCopy} disabled = {text.length === 0}/>
                 <input className="btn btn-primary mx-2 my-2" type="button" value="Clear Text" onClick={handleClear} disabled = {text.length === 0}/>
